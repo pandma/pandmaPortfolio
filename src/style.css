@@ -23,8 +23,8 @@ main {
   z-index: 99;
   position: absolute;
   width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
+  margin: 0px;
+  padding: 0px 0px;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -49,6 +49,7 @@ canvas {
 
 header {
   /* margin-left: 20%; */
+
   background: var(--dark-bg);
   grid-column: 2 / span 5;
   font-size: 2.5rem;
@@ -73,13 +74,35 @@ blockquote {
 }
 
 blockquote p {
-  color: black;
-  background-color: white;
-  font-size: 4rem;
+  color: white;
+  background: var(--dark-bg);
+  /* background-color: white; */
+  font-size: 3rem;
   display: inline;
   line-height: 1;
 }
 
 .left {
   grid-column: 6 / 12;
+}
+
+#pandma {
+  margin-left: 47%;
+  color: aliceblue;
+  font-size: xx-large
+}
+
+.navbar {
+  position: relative;
+  background-color: black;
+}
+
+.logo {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.proyectImg {
+  height: 30%;
+  width: 60%;
 }

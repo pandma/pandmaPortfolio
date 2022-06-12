@@ -16,23 +16,17 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 camera.position.setX(-3);
-
 renderer.render(scene, camera);
 
-// const tGeometry = new THREE.TorusKnotGeometry(8, 3, 100, 16);
-// const tMaterial = new THREE.MeshBasicMaterial({ color: "rgb(223, 151, 16)", wireframe: true });
-// const torusKnot = new THREE.Mesh(tGeometry, tMaterial);
-// scene.add(torusKnot);
+
 
 // Torus
-
 const vGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const vMaterial = new THREE.MeshStandardMaterial({ color: "#ff4500", wireframe: true });
 const torus = new THREE.Mesh(vGeometry, vMaterial);
 scene.add(torus);
 
 // LIGTH
-
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(20, 20, 20);
 // const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -75,6 +69,7 @@ function addquares() {
 }
 Array(200).fill().forEach(addquares);
 
+//planets
 function addPlanet() {
   const geometry = new THREE.SphereGeometry(25, 24, 24);
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true });
@@ -96,14 +91,9 @@ const spaceTexture = new THREE.TextureLoader().load('./../space.avif');
 const other = new THREE.TextureLoader().load('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg')
 // scene.background = spaceTexture;
 
-// Avatar
 
-// const jeffTexture = new THREE.TextureLoader().load('jeff.png');
-// const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
-// scene.add(jeff);
 
 // Moon
-
 const moonTexture = new THREE.TextureLoader().load('./../moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('./../normal.jpg');
 
@@ -120,23 +110,29 @@ scene.add(moon);
 moon.position.z = 30;
 moon.position.setX(-10);
 
-// jeff.position.z = -5;
-// jeff.position.x = 2;
+//Mars
+const marsTexture = new THREE.TextureLoader().load('./../mars.jpg');
+
+const mars = new THREE.Mesh(
+  new THREE.SphereGeometry(4, 42, 42),
+  new THREE.MeshStandardMaterial({
+    map: marsTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(mars);
+mars.position.z = 50
+mars.position.setX(-10)
+
 
 // Scroll Animation
-
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  // moon.rotation.x += 0.05;
-  // moon.rotation.y += 0.075;
-  // moon.rotation.z += 0.05;
-
-  // jeff.rotation.y += 0.01;
-  // jeff.rotation.z += 0.01;
-
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
+
 }
 
 document.body.onscroll = moveCamera;
@@ -148,13 +144,8 @@ function animate() {
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
-
   moon.rotation.x += 0.005;
-
-
-
-  // controls.update();
-
+  mars.rotation.x += 0.005;
 
   renderer.render(scene, camera);
 

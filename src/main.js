@@ -125,6 +125,38 @@ scene.add(mars);
 mars.position.z = 50
 mars.position.setX(-10)
 
+//Saturn
+const satunTexture = new THREE.TextureLoader().load('./../descarga.jpg');
+
+const saturn = new THREE.Mesh(
+  new THREE.SphereGeometry(4, 42, 42),
+  new THREE.MeshStandardMaterial({
+    map: satunTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(saturn);
+saturn.position.z = 60
+saturn.position.setX(-10)
+
+// Ring
+const ringTexture = new THREE.TextureLoader().load('./../rings.jpg');
+
+const geometry = new THREE.RingGeometry(3, 5, 32);
+const material = new THREE.MeshBasicMaterial({
+  map: ringTexture,
+  side: THREE.DoubleSide
+});
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+mesh.position.z = 60
+// mesh.position.y = 0
+mesh.position.x = 10
+
+
+mesh.position.setX(-10)
+
 
 // Scroll Animation
 function moveCamera() {
@@ -146,6 +178,13 @@ function animate() {
   torus.rotation.z += 0.01;
   moon.rotation.x += 0.005;
   mars.rotation.x += 0.005;
+  saturn.rotation.x += 0.005;
+  saturn.rotation.y += 0.005;
+
+
+  mesh.rotation.x += 0.001;
+  mesh.rotation.y += 0.005;
+  mesh.rotation.z += 0.01;
 
   renderer.render(scene, camera);
 

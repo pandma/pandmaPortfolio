@@ -6,7 +6,6 @@ canvas {
   left: 0;
 }
 
-
 :root {
   --dark-bg: rgba(0, 0, 0, 0.625);
   --spacing: 350px;
@@ -16,16 +15,14 @@ canvas {
   font-style: normal;
 }
 
-
 main {
   width: 100vw;
   color: white;
   z-index: 99;
   position: absolute;
   width: 100%;
-  margin: 0px;
-  padding: 0px 0px;
-
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -45,11 +42,7 @@ canvas {
   left: 0;
 }
 
-
-
 header {
-  /* margin-left: 20%; */
-
   background: var(--dark-bg);
   grid-column: 2 / span 5;
   font-size: 2.5rem;
@@ -86,11 +79,6 @@ blockquote p {
   grid-column: 6 / 12;
 }
 
-#pandma {
-  margin-left: 47%;
-  color: aliceblue;
-  font-size: xx-large
-}
 
 .navbar {
   position: relative;
@@ -105,4 +93,82 @@ blockquote p {
 .proyectImg {
   height: 30%;
   width: 60%;
+}
+
+.logoXs {
+  display: none;
+}
+
+
+@media screen and (max-width: 400px) {
+  main {
+    color: white;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  section {
+    width: 100%;
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  .left {
+    width: 100%;
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote p {
+    width: 100%;
+    color: white;
+    background: var(--dark-bg);
+    font-size: 1.25rem;
+    display: inline;
+    line-height: 1;
+    margin-right: 3%;
+
+  }
+
+  header {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    grid-column: 2 / 8;
+    padding: 1rem;
+    margin-top: 15%;
+    background: var(--dark-bg);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoXs {
+    display: block;
+  }
+
+  .light {
+    margin-bottom: 85%;
+  }
+
+
 }
